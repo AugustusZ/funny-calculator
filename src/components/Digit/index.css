@@ -1,0 +1,15 @@
+.digit {
+}
+
+g > * {
+  cursor: pointer;
+  transition: fill 0.2s;
+}
+
+g > .on {
+  fill: #1B2124;
+}
+
+g > :not(.on) {
+  fill: #738960;
+}

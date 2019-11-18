@@ -1,0 +1,14 @@
+.calculator {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+.calculator > *:first-child {
+    flex: 1 1 auto;
+}
+
+.calculator > footer {
+    height: 100px;
+}
