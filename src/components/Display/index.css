@@ -1,3 +1,7 @@
 .display {
-    background-image: linear-gradient(136deg, #A8B496 0%, #819872 100%);
+  display: flex;
+  overflow-x: auto;
+  align-items: center;
+  padding: 10px 30px;
+  background-image: linear-gradient(136deg, #a8b496 0%, #819872 100%);
 }
