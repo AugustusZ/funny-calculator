@@ -5,7 +5,7 @@ import './index.css';
 import { checkExpression } from '../../utils/expression';
 
 const getInitDigits = (value: number) =>
-  String(value)
+  String(isNaN(value) ? '' : value)
     .split('')
     .concat(Array(100).fill(''));
 const Display = ({

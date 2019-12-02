@@ -5,13 +5,19 @@ import FooterButton from '../FooterButton';
 import './index.css';
 import { checkExpression } from '../../utils/expression';
 
-const initValue = 0;
+const initValue = NaN;
 const Calculator: React.FC = () => {
   const [answer, setAnswer] = useState(initValue);
   const [key, setKey] = useState(0);
   const answerRef = useRef(initValue);
 
-  const setExpression = (expression: string) => {
+  const setExpression = (expression?: string) => {
+    if (typeof expression === 'undefined') {
+      answerRef.current = initValue;
+      console.log('Reset');
+      return;
+    }
+
     const newAnswer = checkExpression(expression);
     if (typeof newAnswer === 'number') {
       answerRef.current = newAnswer; // don't set state yet
@@ -26,7 +32,7 @@ const Calculator: React.FC = () => {
   };
 
   const reset = () => {
-    setExpression('0');
+    setExpression();
     calculate();
     setKey(Date.now());
   };
