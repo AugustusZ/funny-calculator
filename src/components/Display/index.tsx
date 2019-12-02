@@ -2,12 +2,25 @@ import React, { useState } from 'react';
 import Digit from '../Digit';
 
 import './index.css';
+import { checkExpression } from '../../utils/expression';
 
-const Display: React.FC = () => {
+const Display = ({
+  setExpression
+}: {
+  setExpression: (expression: string) => void;
+}) => {
   const [digits, setDigits] = useState<string[]>(['1', '*', '2']);
   const setDigitAt = (newDigit: string, index: number) => {
-    setDigits(digits.map((d, i) => (index === i ? newDigit : d)));
+    const newDigits = digits.map((d, i) => (index === i ? newDigit : d));
+    setDigits(newDigits);
+
+    //
+    const expression = newDigits.join('');
+    if (typeof checkExpression(expression) !== 'undefined') {
+      setExpression(expression);
+    }
   };
+
   return (
     <div className="display">
       {digits.map((digit, index) => {
