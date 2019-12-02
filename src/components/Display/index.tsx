@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Digit from '../Digit';
 
 import './index.css';
 import { checkExpression } from '../../utils/expression';
 
+const getInitDigits = (value: number) =>
+  String(value)
+    .split('')
+    .concat(Array(100).fill(''));
 const Display = ({
   value,
   setExpression
@@ -11,7 +15,9 @@ const Display = ({
   value: number;
   setExpression: (expression: string) => void;
 }) => {
-  const [digits, setDigits] = useState<string[]>(String(value).split(''));
+  const [digits, setDigits] = useState<string[]>(getInitDigits(value));
+  const ref = useRef<HTMLDivElement>(null);
+
   const setDigitAt = (newDigit: string, index: number) => {
     const newDigits = digits.map((d, i) => (index === i ? newDigit : d));
     setDigits(newDigits);
@@ -24,11 +30,15 @@ const Display = ({
   };
 
   useEffect(() => {
-    setDigits(String(value).split(''));
+    setDigits(getInitDigits(value));
+
+    if (ref.current) {
+      ref.current.scrollLeft = 0;
+    }
   }, [value]);
 
   return (
-    <div className="display">
+    <div className="display" ref={ref}>
       {digits.map((digit, index) => {
         const setDigit = (value: string) => {
           setDigitAt(value, index);
