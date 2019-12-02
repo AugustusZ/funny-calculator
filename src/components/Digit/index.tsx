@@ -27,10 +27,12 @@ const Digit = ({
       setDigit(newDigit);
     }
   };
+
+  const isValid = typeof utils.getDigitFromCode(code) === 'string';
   return (
-    <div className="digit">
+    <div className={'digit' + (isValid ? '' : ' invalid')}>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283 431">
-        <g fill="#1B2124" fillRule="evenodd">
+        <g fillRule="evenodd">
           {utils.SVG_ELEMENTS.map((elem, index) => {
             const { tag, ...attrs } = elem;
             const status = getStatusAt(index);

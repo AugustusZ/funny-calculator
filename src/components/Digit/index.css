@@ -14,3 +14,8 @@ g > .on {
 g > :not(.on) {
   fill: #738960;
 }
+
+/* instant error indication */
+.digit.invalid g > .on {
+  fill: rgba(119, 18, 18, 0.829);
+}
