@@ -13,3 +13,13 @@
   border-radius: 6px;
   border: 0;
 }
+
+.footer-button.dangerous {
+  background-image: linear-gradient(
+    to bottom,
+    hsl(-8, 37%, 22%) 0%,
+    hsl(-10, 29%, 13%) 82%,
+    hsl(-20, 20%, 3%) 100%
+  );
+  color: hsl(13, 6%, 56%);
+}

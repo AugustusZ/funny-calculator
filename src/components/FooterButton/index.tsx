@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import './index.css';
 
-const FooterButton = ({ onClick }: { onClick: () => void }) => {
+const FooterButton = ({
+  isDangerous,
+  onClick,
+  children
+}: {
+  isDangerous?: boolean;
+  onClick: () => void;
+  children: ReactNode;
+}) => {
   return (
-    <button className="footer-button" onClick={onClick}>
-      =
+    <button
+      className={'footer-button' + (isDangerous ? ' dangerous' : '')}
+      onClick={onClick}>
+      {children}
     </button>
   );
 };

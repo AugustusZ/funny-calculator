@@ -9,6 +9,9 @@
 }
 
 .calculator > footer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 15px;
   height: 100px;
   background-image: linear-gradient(
     to bottom,
