@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './index.css';
 import * as utils from './utils';
+import { SVG_ELEMENTS } from './constants';
 
 const Digit = ({
   digit,
@@ -33,7 +34,7 @@ const Digit = ({
     <div className={'digit' + (isValid ? '' : ' invalid')}>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283 431">
         <g fillRule="evenodd">
-          {utils.SVG_ELEMENTS.map((elem, index) => {
+          {SVG_ELEMENTS.map((elem, index) => {
             const { tag, ...attrs } = elem;
             const status = getStatusAt(index);
             const props = {
