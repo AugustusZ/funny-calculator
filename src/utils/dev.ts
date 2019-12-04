@@ -1,3 +1,1 @@
-export const isDev = decodeURIComponent(window.location.search).includes(
-  'dev=✔︎'
-);
+export const isDev = decodeURI(window.location.search).includes('dev=✔︎');
