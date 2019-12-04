@@ -1,0 +1,12 @@
+.help {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff009d;
+  user-select: none;
+  text-align: center;
+  font-family: monospace;
+  line-height: 1.6;
+  font-size: 14px;
+}

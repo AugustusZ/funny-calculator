@@ -5,16 +5,19 @@ import './index.css';
 const FooterButton = ({
   isDangerous,
   onClick,
+  onDoubleClick,
   children
 }: {
   isDangerous?: boolean;
   onClick: () => void;
+  onDoubleClick?: () => void;
   children: ReactNode;
 }) => {
   return (
     <button
       className={'footer-button' + (isDangerous ? ' dangerous' : '')}
-      onClick={onClick}>
+      onClick={onClick}
+      onDoubleClick={onDoubleClick}>
       {children}
     </button>
   );
