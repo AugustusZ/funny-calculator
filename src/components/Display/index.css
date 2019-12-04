@@ -7,9 +7,9 @@
 }
 
 .display > :first-child {
-  padding-left: 50px;
+  margin-left: 50px;
 }
 
 .display > :last-child {
-  padding-right: 50px;
+  margin-right: 50px;
 }
