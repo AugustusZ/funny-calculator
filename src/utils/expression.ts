@@ -1,7 +1,8 @@
+import { evaluate, format } from 'mathjs';
 export const checkExpression = (expression: string): number | undefined => {
   try {
-    // eslint-disable-next-line
-    return Function(`"use strict";return (${expression})`)();
+    const value = evaluate(expression);
+    return parseFloat(format(value, 14));
   } catch {
     return undefined;
   }
