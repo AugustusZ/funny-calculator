@@ -10,7 +10,7 @@ const initValue = NaN;
 const Calculator: React.FC = () => {
   const [answer, setAnswer] = useState(initValue);
   const [key, setKey] = useState(0);
-  const [isShowingHelp, setIsShowingHelp] = useState(true);
+  const [isShowingHelp, setIsShowingHelp] = useState(false);
   const answerRef = useRef(initValue);
 
   const setExpression = (expression?: string) => {
