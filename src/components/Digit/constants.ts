@@ -40,7 +40,7 @@ export const MAPPING_CHAR_TO_CODE: Record<string, string> = {
 export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '11100010010001110': '0',
   '10101000010100100': '0', // half 0 on left
-  '01001010000101000': '0', // half 0 on right
+  '01001010000101010': '0', // half 0 on right
   '10101001000000000': '0', // quarter 0 on upper left
   '01001010100000000': '0', // quarter 0 on upper right
   '00000001010100100': '0', // quarter 0 on lower left
@@ -61,7 +61,7 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '11000011110000110': '2',
   '11000100001000110': '2', // Z
   '10001001010000100': '2', // half 2 on left
-  '01000010000100000': '2', // half 2 on right
+  '01000010100100010': '2', // half 2 on right
   '01000100100000000': '2', // half z on upper right
   '00000001001000100': '2', // half z on lower right
 
@@ -73,7 +73,6 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '11000010100001110': '3', // ∃ with shorter center bar
 
   '00100011100001000': '4',
-  '00001011100001000': '4', // 上⤴︎
   '00001010100001000': '4', // right 丩
   '00101001000100000': '4', // left 丩
   '00000110100001000': '4', // right 4 with ⊿
@@ -81,7 +80,7 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
 
   '11100001100001110': '5',
   '10100001000100100': '5', //half 5 on left
-  '01001000100001000': '5', //half 5 on right
+  '01001000100001010': '5', //half 5 on right
 
   '11100001110001110': '6',
   '10100001010100100': '6', //half 6 on left
@@ -95,6 +94,7 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '11000101101000000': '7', // handwriting 7 with bar ヌ
   '11100010000001000': '7', // 7 with serif at the beginning
   '10001000000100000': '7', // half 7 on left
+  '10001001100100000': '7', // half 7 on left with bar
   '01000010000001000': '7', // half 7 on right
   '10101000000100000': '7', // half 7 on left with serif at the beginning
   '01001010000001000': '7', // half 7 on right with serif at the beginning
@@ -123,14 +123,8 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '00001001100100000': '+',
 
   '00000001100000000': '-',
-  '10000000000000000': '-', // small - on top left
-  '01000000000000000': '-', // small - on top right
   '00000001000000000': '-', // small - on center left
   '00000000100000000': '-', // small - on center right
-  '00000000000000100': '-', // small - on bottom left
-  '00000000000000010': '-', // small - on bottom right
-  '11000000000000000': '-', // -- on top
-  '00000000000000110': '-', // -- on bottom
 
   '00010100001010000': '*', // X
   '00001001101010000': '*', // asterisk (5 petals)
