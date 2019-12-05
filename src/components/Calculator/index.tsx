@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import Display from '../Display';
-import FooterButton from '../FooterButton';
 import Help from '../Help';
 import { parseExpression } from '../../utils';
 import './index.css';

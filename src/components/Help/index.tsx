@@ -5,7 +5,11 @@ import './index.css';
 const Help = () => {
   return (
     <div className="help">
-      A calculator w/o a numpad is like <br />a telephone w/o a dial.
+      A calculator <br />
+      without a numpad <br />
+      is like <br />
+      a telephone <br />
+      without a dial.
     </div>
   );
 };
