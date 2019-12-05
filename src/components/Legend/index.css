@@ -1,0 +1,54 @@
+.legend {
+  overflow-y: auto;
+  height: calc(100% - 250px);
+  width: 280px;
+  background: hsla(89, 36%, 80%, 0.4);
+}
+
+.legend ul {
+  list-style: none;
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+.legend-char-section {
+  padding: 20px 0;
+}
+
+.legend-char-section h3 {
+  color: black;
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+.legend-char-section h3 kbd {
+  background: rgba(130, 140, 140, 0.8);
+  padding: 2px 5px 7px;
+  border-radius: 3px;
+  border: 1px solid #b4b4b4;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.3),
+    0 -2px 0 0 rgba(255, 255, 255, 0.7) inset;
+  color: #222;
+  display: inline-block;
+  font-size: 0.85em;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.legend-code-list {
+}
+
+.legend .digit {
+  min-width: unset;
+}
+
+.legend .digit .code {
+  display: none;
+}
+
+.legend .digit svg {
+  width: 30px;
+}

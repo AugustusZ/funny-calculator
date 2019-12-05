@@ -1,12 +1,19 @@
 .help {
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #ff009d;
+  color: rgb(139, 155, 119);
   user-select: none;
   text-align: center;
   font-family: monospace;
   line-height: 2;
-  font-size: 18px;
+  font-size: 14px;
+  padding: 30px 0 50px;
+  box-sizing: border-box;
+}
+
+.help > div {
+  flex: 1 1 auto;
 }

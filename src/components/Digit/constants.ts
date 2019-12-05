@@ -162,6 +162,21 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '00011101101110000': '🆑'
 };
 
+const getMappingCharToCodeList = () => {
+  const reversedMapping: { [char: string]: string[] } = {};
+  Object.keys(MAPPING_CODE_TO_CHAR).forEach(code => {
+    const char = MAPPING_CODE_TO_CHAR[code];
+    if (typeof reversedMapping[char] === 'undefined') {
+      reversedMapping[char] = [code];
+    } else {
+      reversedMapping[char].push(code);
+    }
+  });
+  return reversedMapping;
+};
+
+export const MAPPING_CHAR_TO_CODE_LIST = getMappingCharToCodeList();
+
 export const SVG_ELEMENTS = [
   { tag: 'path', d: 'M138.74 0v11.602L123.255 27h-79.64L30.909 13.5 44.56 0z' },
   {

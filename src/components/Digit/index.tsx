@@ -13,7 +13,7 @@ const Digit = ({
   setCode
 }: {
   code: string;
-  setCode: (code: string) => void;
+  setCode?: (code: string) => void;
 }) => {
   const [strokes, setStrokes] = useState<boolean[]>(
     getStrokesFromCode(code || '')
@@ -30,7 +30,7 @@ const Digit = ({
     setStrokes(newStrokes);
 
     // up pass the code when valid
-    if (areStrokesValid(newStrokes)) {
+    if (areStrokesValid(newStrokes) && typeof setCode === 'function') {
       setCode(getCodeFromStrokes(newStrokes));
     }
   };
