@@ -1,44 +1,48 @@
 import React, { useState } from 'react';
-import './index.css';
-import * as utils from './utils';
+import {
+  isDev,
+  getStrokesFromCode,
+  getCodeFromStrokes,
+  areStrokesValid
+} from '../../utils';
 import { SVG_ELEMENTS } from './constants';
-import { isDev } from '../../utils/dev';
+import './index.css';
 
 const Digit = ({
-  digit,
-  setDigit
+  code,
+  setCode
 }: {
-  digit: string;
-  setDigit: (value: string) => void;
+  code: string;
+  setCode: (code: string) => void;
 }) => {
-  const [code, setCode] = useState<string>(utils.getCodeFromDigit(digit || ''));
+  const [strokes, setStrokes] = useState<boolean[]>(
+    getStrokesFromCode(code || '')
+  );
 
-  const getStatusAt = (index: number) => code.charAt(index) === '1';
+  const getStrokeAt = (index: number): boolean => strokes[index];
 
   const onClick = (event: any) => {
     const strokeIndex: number = parseInt(event.target.dataset['stroke'], 10);
-    const newStatus = !getStatusAt(strokeIndex);
-    const newCode = code
-      .split('')
-      .map((c, i) => (strokeIndex === i ? (newStatus ? '1' : '0') : c))
-      .join('');
-    setCode(newCode);
+    const newStroke = !getStrokeAt(strokeIndex);
+    const newStrokes = strokes.map((s, i) =>
+      strokeIndex === i ? newStroke : s
+    );
+    setStrokes(newStrokes);
 
-    const newDigit = utils.getDigitFromCode(newCode);
-    if (typeof newDigit === 'string') {
-      setDigit(newDigit);
+    // up pass the code when valid
+    if (areStrokesValid(newStrokes)) {
+      setCode(getCodeFromStrokes(newStrokes));
     }
   };
 
-  const isValid = typeof utils.getDigitFromCode(code) === 'string';
   return (
-    <div className={'digit' + (isValid ? '' : ' invalid')}>
-      {isDev && <code className="code">{code}</code>}
+    <div className={'digit' + (areStrokesValid(strokes) ? '' : ' invalid')}>
+      {isDev && <code className="code">{getCodeFromStrokes(strokes)}</code>}
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283 431">
         <g fillRule="evenodd">
           {SVG_ELEMENTS.map((elem, index) => {
             const { tag, ...attrs } = elem;
-            const status = getStatusAt(index);
+            const status = getStrokeAt(index);
             const props = {
               ...attrs,
               onClick,

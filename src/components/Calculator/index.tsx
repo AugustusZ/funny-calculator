@@ -2,9 +2,8 @@ import React, { useState, useRef } from 'react';
 import Display from '../Display';
 import FooterButton from '../FooterButton';
 import Help from '../Help';
-
+import { checkExpression } from '../../utils';
 import './index.css';
-import { checkExpression } from '../../utils/expression';
 
 const initValue = NaN;
 const Calculator: React.FC = () => {
@@ -49,7 +48,7 @@ const Calculator: React.FC = () => {
 
   return (
     <div className="calculator">
-      <Display key={key} setExpression={setExpression} value={answer} />
+      <Display key={key} setExpression={setExpression} answerValue={answer} />
       <footer>
         <FooterButton
           onClick={reset}
