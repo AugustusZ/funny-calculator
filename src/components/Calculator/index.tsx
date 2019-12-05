@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import Display from '../Display';
 import FooterButton from '../FooterButton';
 import Help from '../Help';
-import { checkExpression } from '../../utils';
+import { parseExpression } from '../../utils';
 import './index.css';
 
 const initValue = NaN;
@@ -12,29 +12,31 @@ const Calculator: React.FC = () => {
   const [isShowingHelp, setIsShowingHelp] = useState(false);
   const answerRef = useRef(initValue);
 
-  const setExpression = (expression?: string) => {
-    if (typeof expression === 'undefined') {
-      answerRef.current = initValue;
-      console.log('Reset');
-      return;
-    }
-
-    const newAnswer = checkExpression(expression);
+  const setExpression = (expression: string) => {
+    const { command, value: newAnswer } = parseExpression(expression);
     if (typeof newAnswer === 'number') {
       answerRef.current = newAnswer; // don't set state yet
       console.log('Answer:', newAnswer);
+
+      // execute command
+      if (command === '=') {
+        displayAnswer();
+      } else if (command === '🆑') {
+        clear();
+      }
     } else {
       console.error('Invalid expression:', expression);
     }
   };
 
-  const calculate = () => {
+  const displayAnswer = () => {
     setAnswer(answerRef.current);
   };
 
-  const reset = () => {
-    setExpression();
-    calculate();
+  const clear = () => {
+    answerRef.current = initValue;
+    console.log('Clear');
+    displayAnswer();
     setKey(Date.now());
   };
 
@@ -51,12 +53,12 @@ const Calculator: React.FC = () => {
       <Display key={key} setExpression={setExpression} answerValue={answer} />
       <footer>
         <FooterButton
-          onClick={reset}
+          onClick={clear}
           isDangerous={true}
           onDoubleClick={showHelp}>
           {'↺'}
         </FooterButton>
-        <FooterButton onClick={calculate}>{'＝'}</FooterButton>
+        <FooterButton onClick={displayAnswer}>{'＝'}</FooterButton>
       </footer>
       {isShowingHelp && (
         <div className="full-screen" role="button" onDoubleClick={hideHelp}>

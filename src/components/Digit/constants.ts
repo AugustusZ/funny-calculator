@@ -87,7 +87,11 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '11001000000100110': 'I',
   '11100011110000000': 'P',
 
-  '00000000000000000': ''
+  '00000000000000000': '',
+
+  // command code:
+  '11000000000000110': '=',
+  '00011101101110000': '🆑'
 };
 
 export const SVG_ELEMENTS = [

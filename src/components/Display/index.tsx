@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Digit from '../Digit';
 import {
-  checkExpression,
   getCodeFromDigit,
-  getDigitFromCode
+  getDigitFromCode,
+  parseExpression
 } from '../../utils';
 import './index.css';
 
@@ -31,7 +31,7 @@ const Display = ({
 
     // up pass the expression when valid
     const expression = newCodes.map(getDigitFromCode).join('');
-    if (typeof checkExpression(expression) !== 'undefined') {
+    if (typeof parseExpression(expression).value === 'number') {
       setExpression(expression);
     }
   };
