@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
 }
 
 .calculator > *:first-child {
@@ -9,16 +10,17 @@
 }
 
 .calculator > footer {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 15px;
-  height: 100px;
-  background-image: linear-gradient(
-    to bottom,
-    rgb(46, 49, 44) 0%,
-    rgb(8, 11, 5) 100%
-  );
-  padding: 20px 25px;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.calculator > footer > button {
+  width: 100%;
+  height: 30px;
+  opacity: 0;
 }
 
 .full-screen {

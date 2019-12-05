@@ -52,16 +52,10 @@ const Calculator: React.FC = () => {
     <div className="calculator">
       <Display key={key} setExpression={setExpression} answerValue={answer} />
       <footer>
-        <FooterButton
-          onClick={clear}
-          isDangerous={true}
-          onDoubleClick={showHelp}>
-          {'↺'}
-        </FooterButton>
-        <FooterButton onClick={displayAnswer}>{'＝'}</FooterButton>
+        <button onClick={showHelp}></button>
       </footer>
       {isShowingHelp && (
-        <div className="full-screen" role="button" onDoubleClick={hideHelp}>
+        <div className="full-screen" role="button" onClick={hideHelp}>
           <Help />
         </div>
       )}
