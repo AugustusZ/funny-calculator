@@ -42,9 +42,13 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '10101000010100100': '0', // half 0 on left
   '01001010000101010': '0', // half 0 on right
   '10101001000000000': '0', // quarter 0 on upper left
+  '10111001000000000': '0', // quarter 0 on upper left with bar
   '01001010100000000': '0', // quarter 0 on upper right
+  '01001110100000000': '0', // quarter 0 on upper right with bar
   '00000001010100100': '0', // quarter 0 on lower left
+  '00000001011100100': '0', // quarter 0 on lower left with bar
   '00000000100101010': '0', // quarter 0 on lower right
+  '00000000100111010': '0', // quarter 0 on lower right with bar
 
   '00000010000001000': '1', // right 1
   '00001000000100000': '1', // middle 1
