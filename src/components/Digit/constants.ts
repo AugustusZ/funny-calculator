@@ -39,17 +39,38 @@ export const MAPPING_CHAR_TO_CODE: Record<string, string> = {
 
 export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '11100010010001110': '0',
+  '10101000010100100': '0', // half 0 on left
+  '01001010000101000': '0', // half 0 on right
+  '10101001000000000': '0', // quarter 0 on upper left
+  '01001010100000000': '0', // quarter 0 on upper right
+  '00000001010100100': '0', // quarter 0 on lower left
+  '00000000100101010': '0', // quarter 0 on lower right
 
   '00000010000001000': '1', // right 1
   '00001000000100000': '1', // middle 1
   '00100000010000000': '1', // left 1
+  '10001000000100110': '1', // fancy 1 with top and bottom bar
+  '00000110000001000': '1', // Less fancy 1 with diagonal line
+  '00100000000000000': '1', // Small 1 on upper left
+  '00001000000000000': '1', // Small 1 on upper center
+  '00000010000000000': '1', // Small 1 on upper right
+  '00000000010000000': '1', // Small 1 on lower left
+  '00000000000100000': '1', // Small 1 on lower center
+  '00000000000001000': '1', // Small 1 on lower right
 
   '11000011110000110': '2',
   '11000100001000110': '2', // Z
+  '10001001010000100': '2', // half 2 on left
+  '01000010000100000': '2', // half 2 on right
+  '01000100100000000': '2', // half z on upper right
+  '00000001001000100': '2', // half z on lower right
 
   '11000011100001110': '3', // ∃
   '11000100100001110': '3', // ㇋
   '11000100000010110': '3', // flipped ∑
+  '10001001000100100': '3', // half 3 on left
+  '01000010100001010': '3', // half 3 on right
+  '11000010100001110': '3', // ∃ with shorter center bar
 
   '00100011100001000': '4',
   '00001011100001000': '4', // 上⤴︎
@@ -59,25 +80,66 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '00101001100100000': '4', // 4 like /+
 
   '11100001100001110': '5',
+  '10100001000100100': '5', //half 5 on left
+  '01001000100001000': '5', //half 5 on right
+
   '11100001110001110': '6',
+  '10100001010100100': '6', //half 6 on left
+  '01001000100101010': '6', //half 6 on right
+  '00000100100101010': '6', //half 6 with diagonal line
+  '00100001010100100': '6', //half 6 on left without top bar
+  '00001000100101010': '6', //half 6 on right without top bar
 
   '11000010000001000': '7',
   '11000100001000000': '7', // ⧶
   '11000101101000000': '7', // handwriting 7 with bar ヌ
   '11100010000001000': '7', // 7 with serif at the beginning
+  '10001000000100000': '7', // half 7 on left
+  '01000010000001000': '7', // half 7 on right
+  '10101000000100000': '7', // half 7 on left with serif at the beginning
+  '01001010000001000': '7', // half 7 on right with serif at the beginning
+  '10001000000000000': '7', // quarter 7 on upper left
+  '01000010000000000': '7', // quarter 7 on upper right
+  '00000001000100000': '7', // quarter 7 on lower left
+  '00000000100001000': '7', // quarter 7 on lower right
+  '01000100000000000': '7', // small ⧶ on upper right
+  '00000001001000000': '7', // small ⧶ on lower left
 
   '11100011110001110': '8',
   '11010100001010110': '8', // ⧖
+  '10101001010100100': '8', // half 8 on left
+  '01001010100101010': '8', // half 8 on right
 
   '11100011100001110': '9',
   '11100011100001000': '9', // 9 without tail
+  '10101001000100100': '9', // half 9 on left
+  '01001010100001010': '9', // half 9 on right
+  '10101001000100000': '9', // half 9 on left without tail
+  '01001010100001000': '9', // half 9 on right without tail
+  '10101001001000000': '9', // half 9 on left with diagonal line
+
   '00000000000000001': '.',
+
   '00001001100100000': '+',
+
   '00000001100000000': '-',
+  '10000000000000000': '-', // small - on top left
+  '01000000000000000': '-', // small - on top right
+  '00000001000000000': '-', // small - on center left
+  '00000000100000000': '-', // small - on center right
+  '00000000000000100': '-', // small - on bottom left
+  '00000000000000010': '-', // small - on bottom right
+  '11000000000000000': '-', // -- on top
+  '00000000000000110': '-', // -- on bottom
+
   '00010100001010000': '*', // X
   '00001001101010000': '*', // asterisk (5 petals)
   '00010101101010000': '*', // ⦒⦑
+
   '00000100001000000': '/',
+  '00000100000000000': '/', // divide on top right
+  '00000000001000000': '/', // divide on bottom left
+
   '00000100000010000': '(',
   '00010000001000000': ')',
 
@@ -91,6 +153,12 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
 
   // command code:
   '11000000000000110': '=',
+  '11000001100000000': '=', // half = on top
+  '00000001100000110': '=', // half = on bottom
+  '10000001000000000': '=', // quarter = on upper left
+  '01000000100000000': '=', // quarter = on upper right
+  '00000001000000100': '=', // quarter = on lower left
+  '00000000100000010': '=', // quarter = on lower right
   '00011101101110000': '🆑'
 };
 
