@@ -55,10 +55,12 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '00000000100111010': '0', // quarter 0 on lower right with bar
 
   '00000010000001000': '1', // right 1
-  '00001000000100000': '1', // middle 1
+  '00001000000100000': '1', // THE middle 1
   '00100000010000000': '1', // left 1
   '10001000000100110': '1', // fancy 1 with top and bottom bar
   '00000110000001000': '1', // Less fancy 1 with diagonal line
+  '10001001100000000': '1', // upper fancy 1
+  '00000001000100110': '1', // lower fancy 1
   '00100000000000000': '1', // Small 1 on upper left
   '00001000000000000': '1', // Small 1 on upper center
   '00000010000000000': '1', // Small 1 on upper right
