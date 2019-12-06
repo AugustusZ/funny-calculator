@@ -145,6 +145,8 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '11000100001000000': '7', // ⧶
   '11100100001000000': '7', // ⧶ w/ serif
   '11000101101000000': '7', // handwriting 7 with bar ヌ
+  '11000100000100000': '7', // straight back
+  '11000101100100000': '7', // straight back w/ bar
   '10001000000100000': '7', // half 7 on left
   '10001001100100000': '7', // half 7 on left with bar
   '01000010000001000': '7', // half 7 on right
