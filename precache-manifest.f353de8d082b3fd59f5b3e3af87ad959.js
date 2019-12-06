@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "45bad85ada4743de45e6e2a7e501cebc",
+    "revision": "0392ee79a8bc6e3e5aeed8c636e0aa3e",
     "url": "/funny-calculator/index.html"
   },
   {
-    "revision": "a3111bd3d76b3cdcd898",
+    "revision": "b7763435f0b627ca33db",
     "url": "/funny-calculator/static/css/main.23aa3d70.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/funny-calculator/static/js/2.7eb234f3.chunk.js"
   },
   {
-    "revision": "a3111bd3d76b3cdcd898",
-    "url": "/funny-calculator/static/js/main.088716b4.chunk.js"
+    "revision": "b7763435f0b627ca33db",
+    "url": "/funny-calculator/static/js/main.1a6c57b8.chunk.js"
   },
   {
     "revision": "f8f4cecdbc28fb07470b",
