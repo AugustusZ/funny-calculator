@@ -232,10 +232,14 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '11000000000000110': '=',
   '11000001100000000': '=', // half = on top
   '00000001100000110': '=', // half = on bottom
+  '10000000000000100': '=', // half left
+  '01000000000000010': '=', // half right
   '10000001000000000': '=', // quarter = on upper left
   '01000000100000000': '=', // quarter = on upper right
   '00000001000000100': '=', // quarter = on lower left
   '00000000100000010': '=', // quarter = on lower right
+  '01101000110001010': '=', // is
+  '11110110011011110': '🆑',
   '00011101101110000': '🆑'
 };
 
