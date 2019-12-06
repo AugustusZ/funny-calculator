@@ -81,11 +81,17 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '00000001001000100': '2', // half z on lower left
 
   '11000011100001110': '3', // ∃
+  '11000010100001110': '3', // ∃ with shorter center bar
+  '11000010110001110': '3', // ∃ with shorter center bar and tail
+  '11100010100001110': '3', // ∃ with shorter center bar and bun
   '11000100100001110': '3', // ㇋
+  '11000100110001110': '3', // \㇋
+  '11000101000010110': '3', // flipped ∑ w/ center bar
   '11000100000010110': '3', // flipped ∑
   '10001001000100100': '3', // half 3 on left
+  '10001001001000000': '3', // half 3 on left w/ diagonal tail
   '01000010100001010': '3', // half 3 on right
-  '11000010100001110': '3', // ∃ with shorter center bar
+  '00010001001000000': '3', // ⪫
 
   '00100011100001000': '4',
   '00001010100001000': '4', // right 丩
