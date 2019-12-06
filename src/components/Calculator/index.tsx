@@ -30,13 +30,14 @@ const Calculator: React.FC = () => {
 
   const displayAnswer = () => {
     setAnswer(answerRef.current);
+    // force a re-render to display the answer
+    setKey(Date.now());
   };
 
   const clear = () => {
     answerRef.current = initValue;
     console.log('Clear');
     displayAnswer();
-    setKey(Date.now());
   };
 
   const showHelp = () => {
