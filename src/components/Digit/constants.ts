@@ -39,6 +39,10 @@ export const MAPPING_CHAR_TO_CODE: Record<string, string> = {
 
 export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '11100010010001110': '0',
+  '11110010010011110': '0', // full 0 with \
+  '11100110011001110': '0', // full 0 with /
+  '11100011100000000': '0', // upper half
+  '00000001110001110': '0', // lower half
   '10101000010100100': '0', // half 0 on left
   '01001010000101010': '0', // half 0 on right
   '10101001000000000': '0', // quarter 0 on upper left
