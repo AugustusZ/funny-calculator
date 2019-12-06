@@ -116,11 +116,27 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '10010001000000000': '5', // upper left
 
   '11100001110001110': '6',
-  '10100001010100100': '6', //half 6 on left
-  '01001000100101010': '6', //half 6 on right
-  '00000100100101010': '6', //half 6 with diagonal line
-  '00100001010100100': '6', //half 6 on left without top bar
-  '00001000100101010': '6', //half 6 on right without top bar
+  '10100001110001110': '6', // short bun
+  '00100001110001110': '6', // b
+  '00100001010010110': '6', // trapezoid base
+  '10100001010010110': '6', // trapezoid base with bun
+  '11100001010010110': '6', // trapezoid base with long bun
+  '10100000111001110': '6', // trapezoid base with long bun
+  '11100000111001110': '6', // trapezoid base with long bun
+  '11100000011010110': '6', // triangle base with long bun
+  '00000100101001110': '6', // /]
+  '11100001010100100': '6', // left half with long bun
+  '10100001010100100': '6', // half 6 on left
+  '01001000100101010': '6', // half 6 on right
+  '00000100100101010': '6', // half 6 with diagonal line
+  '00100001010100100': '6', // half 6 on left without top bar
+  '00001000100101010': '6', // half 6 on right without top bar
+  '00000100001010110': '6', // triangle base
+  '00001000000110010': '6', // right triangle base
+  '01001000000110010': '6', // right triangle base with bun
+  '00000100000110010': '6', // right triangle base with diagonal neck
+  '00100001011000000': '6', // left triangle base
+  '10100001011000000': '6', // left triangle base with bun
 
   '11000010000001000': '7',
   '11000100001000000': '7', // ⧶
