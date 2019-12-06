@@ -6,30 +6,32 @@ import './index.css';
 
 const initValue = NaN;
 const Calculator: React.FC = () => {
-  const [answer, setAnswer] = useState(initValue);
   const [key, setKey] = useState(0);
   const [isShowingHelp, setIsShowingHelp] = useState(false);
   const answerRef = useRef(initValue);
 
   const setExpression = (expression: string) => {
-    const { command, value: newAnswer } = parseExpression(expression);
-    if (typeof newAnswer === 'number') {
-      answerRef.current = newAnswer; // don't set state yet
-      console.log('Answer:', newAnswer);
+    console.debug('Expression:', expression);
+    const { command, value, evaluable, executable } = parseExpression(
+      expression
+    );
 
+    if (evaluable) {
+      answerRef.current = value as number; // don't set state yet
+      console.log('Answer:', value);
+    }
+
+    if (executable) {
       // execute command
       if (command === '=') {
         displayAnswer();
       } else if (command === '🆑') {
         clear();
       }
-    } else {
-      console.error('Invalid expression:', expression);
     }
   };
 
   const displayAnswer = () => {
-    setAnswer(answerRef.current);
     // force a re-render to display the answer
     setKey(Date.now());
   };
@@ -50,7 +52,11 @@ const Calculator: React.FC = () => {
 
   return (
     <div className="calculator">
-      <Display key={key} setExpression={setExpression} answerValue={answer} />
+      <Display
+        key={key}
+        setExpression={setExpression}
+        answerValue={answerRef.current}
+      />
       <footer>
         <button onClick={showHelp}></button>
       </footer>

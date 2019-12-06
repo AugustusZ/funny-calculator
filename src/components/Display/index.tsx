@@ -21,9 +21,10 @@ const Display = ({
     const newCodes = codes.map((code, i) => (index === i ? newCode : code));
     setCodes(newCodes);
 
-    // up pass the expression when valid
+    // up pass the expression when meaningful (executable/parsable)
     const expression = newCodes.map(getDigitFromCode).join('');
-    if (typeof parseExpression(expression).value === 'number') {
+    const { evaluable, executable } = parseExpression(expression);
+    if (evaluable || executable) {
       setExpression(expression);
     }
   };

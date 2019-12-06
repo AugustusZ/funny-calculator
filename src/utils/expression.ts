@@ -9,27 +9,54 @@ export const checkExpression = (expression: string): number | undefined => {
   }
 };
 
-const VALID_COMMAND = ['🆑', '='];
+const hasCommandEqual = (expression: string): boolean =>
+  expression.endsWith('=');
+
+const hasCommandClear = (expression: string): boolean =>
+  expression.includes('🆑');
 
 /**
  * Parse the expression
  *
+ * E.g.
+ *
+ * | Expression | Evaluable | Executable |
+ * |:-------:|:---:|:---:|
+ * | `"-="`  | ❌ | ❌ |
+ * | `"🆑-"` | ❌ | ✅ |
+ * | `"-1"`  | ✅ | ❌ |
+ * | `"-1="` | ✅ | ✅ |
+ *
  * @param expression
- * @returns if `value` is `undefined`, then the `expression` is invalid.
+ * @returns
+ *   - `evaluable`: the expression (after removing commands) can be evaluated to a number
+ *   - `executable`:
+ *     - has `🆑` at any position
+ *     - evaluable and has `=` at the end
  */
 export const parseExpression = (
   expression: string
-): { value?: number; command?: string } => {
-  // Expression after single command digit removed from the end
+): {
+  value?: number;
+  command?: string;
+  evaluable: boolean;
+  executable: boolean;
+} => {
+  // Expression after removing: `🆑` at any position; single `=` at the end
   const cleanExpression = expression.replace(/🆑|=$/g, '');
   const value = checkExpression(cleanExpression);
-
-  const command = VALID_COMMAND.find(validCommand =>
-    expression.endsWith(validCommand)
-  );
+  const evaluable = typeof value === 'number'; // check NaN?
+  const command = hasCommandEqual(expression)
+    ? '='
+    : hasCommandClear(expression)
+    ? '🆑'
+    : undefined;
 
   return {
     command,
-    value
+    value,
+    evaluable,
+    executable:
+      hasCommandClear(expression) || (evaluable && hasCommandEqual(expression))
   };
 };
