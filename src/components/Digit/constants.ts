@@ -139,12 +139,16 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
   '10100001011000000': '6', // left triangle base with bun
 
   '11000010000001000': '7',
-  '11000100001000000': '7', // ⧶
-  '11000101101000000': '7', // handwriting 7 with bar ヌ
   '11100010000001000': '7', // 7 with serif at the beginning
+  '11000100001000000': '7', // ⧶
+  '11100100001000000': '7', // ⧶ w/ serif
+  '11000101101000000': '7', // handwriting 7 with bar ヌ
   '10001000000100000': '7', // half 7 on left
   '10001001100100000': '7', // half 7 on left with bar
   '01000010000001000': '7', // half 7 on right
+  '10101000001000000': '7', // half 7 on left with bun and diagonal tail
+  '10001000001000000': '7', // half 7 on left diagonal tail
+  '10001001101000000': '7', // half 7 on left diagonal tail with bar
   '10101000000100000': '7', // half 7 on left with serif at the beginning
   '01001010000001000': '7', // half 7 on right with serif at the beginning
   '10001000000000000': '7', // quarter 7 on upper left
