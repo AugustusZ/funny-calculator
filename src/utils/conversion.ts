@@ -1,19 +1,26 @@
 import {
   MAPPING_CHAR_TO_CODE,
-  MAPPING_CODE_TO_CHAR
+  MAPPING_CODE_TO_CHAR,
+  MAPPING_CHAR_TO_CODE_LIST
 } from '../components/Digit/constants';
 
 //-------------------
 // code <--> digit
 //-------------------
 
+const getItemFromListRandomly = <T>(list: T[]): T =>
+  list[Math.floor(Math.random() * list.length)];
+
 /**
  * '' --> 00000000000000000
  * @param digit
  */
-export const getCodeFromDigit = (digit: string): string => {
-  const c = digit.length > 1 ? digit.charAt(0) : digit;
-  return MAPPING_CHAR_TO_CODE[c];
+const getCodeFromDigit = (digit: string): string => {
+  const char = digit.length > 1 ? digit.charAt(0) : digit;
+  const possibleCodes = MAPPING_CHAR_TO_CODE_LIST[char];
+  return Array.isArray(possibleCodes)
+    ? getItemFromListRandomly(possibleCodes)
+    : MAPPING_CHAR_TO_CODE['']; // fallback
 };
 
 /**
@@ -43,3 +50,13 @@ export const getCodeFromStrokes = (strokes: boolean[]): string =>
 
 export const areStrokesValid = (strokes: boolean[]): boolean =>
   getCodeFromStrokes(strokes) in MAPPING_CODE_TO_CHAR;
+
+/**
+ * 10 -?-> ['00000010000001000', '11100010010001110']
+ * @param value
+ */
+export const getCodesFromValue = (value: number): string[] =>
+  String(isNaN(value) ? '' : value)
+    .split('')
+    .concat(Array(100).fill(''))
+    .map(getCodeFromDigit);

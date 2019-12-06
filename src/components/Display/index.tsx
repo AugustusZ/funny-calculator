@@ -1,19 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Digit from '../Digit';
 import {
-  getCodeFromDigit,
+  getCodesFromValue,
   getDigitFromCode,
   parseExpression
 } from '../../utils';
 import './index.css';
-
-const getInitDigits = (value: number) =>
-  String(isNaN(value) ? '' : value)
-    .split('')
-    .concat(Array(100).fill(''));
-
-const getInitialCodes = (value: number) =>
-  getInitDigits(value).map(getCodeFromDigit);
 
 const Display = ({
   answerValue,
@@ -22,7 +14,7 @@ const Display = ({
   answerValue: number;
   setExpression: (expression: string) => void;
 }) => {
-  const [codes, setCodes] = useState<string[]>(getInitialCodes(answerValue));
+  const [codes, setCodes] = useState<string[]>(getCodesFromValue(answerValue));
   const ref = useRef<HTMLDivElement>(null);
 
   const setCodeAt = (newCode: string, index: number) => {
@@ -38,7 +30,7 @@ const Display = ({
 
   // triggered when value is changed AKA displaying the calculated result
   useEffect(() => {
-    setCodes(getInitialCodes(answerValue));
+    setCodes(getCodesFromValue(answerValue));
 
     if (ref.current) {
       ref.current.scrollLeft = 0;
