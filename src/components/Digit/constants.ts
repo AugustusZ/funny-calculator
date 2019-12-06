@@ -68,10 +68,17 @@ export const MAPPING_CODE_TO_CHAR: Record<string, string> = {
 
   '11000011110000110': '2',
   '11000100001000110': '2', // Z
+  '11100100001000110': '2', // Z with starting serif
+  '11000101010000110': '2', // Z variant
+  '11000010101000110': '2', // ...
+  '11100010101000110': '2', // ...
+  '10001000001000100': '2', // ... left half
+  '10101000001000100': '2', // ... left half with starting serif
+  '10101000001000110': '2', // ... left half with long tail serif
   '10001001010000100': '2', // half 2 on left
   '01000010100100010': '2', // half 2 on right
   '01000100100000000': '2', // half z on upper right
-  '00000001001000100': '2', // half z on lower right
+  '00000001001000100': '2', // half z on lower left
 
   '11000011100001110': '3', // ∃
   '11000100100001110': '3', // ㇋
